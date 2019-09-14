@@ -1,6 +1,8 @@
 <?php 
-		require_once ("Config/Autoload.php");
+		require_once ('Config/Autoload.php');
+		
 		use Models\Client as Client;
+		
 		$user = new Client();
 		$user->setUsername($_POST["user"]);
 		$user->setPassword($_POST["pass"]);
