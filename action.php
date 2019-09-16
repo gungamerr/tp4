@@ -1,5 +1,5 @@
 <?php 
-		require_once ('Config/Autoload.php');
+		require_once ('./Config/Autoload.php');
 		//require_once "Models\Client.php"
 		
 		use Models\Client as Client;

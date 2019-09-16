@@ -1,8 +1,8 @@
 <?php 
 	//Models/Client.php
 	namespace Models;
-	
-	use Models\Person as Person
+
+	use Models\Person as Person;
 
 	class Client extends Person
 	{
