@@ -1,22 +1,29 @@
 <?php 
 		require_once ('Config/Autoload.php');
+		//require_once "Models\Client.php"
 		
 		use Models\Client as Client;
 		
-		$user = new Client();
-		$user->setUsername($_POST["user"]);
-		$user->setPassword($_POST["pass"]);
+		$error="pass";
 		
-
-
-	if($user->getUsername()=="Cosme Fulanito" && $user->getPassword() == "strongPassword!")
+		if(isset($_POST["user"]) && isset($_POST["pass"]))
+		{	
+			
+			$user = new Client();
+			$user->setUsername($_POST["user"]);
+			$user->setPassword($_POST["pass"]);
+			if($user->getUsername()==="Cosme Fulanito" && $user->getPassword() === "strongPassword!")
+			//if($_POST["user"]=="Cosme Fulanito" && $_POST["pass"]== "strongPassword!")
+			{
+				header("Location: add-bill.php");  
+			}
+			else{
+			header("Location: index.php?error=$error");
+			}
+		}else
 		{
-			header("Location: add-bill.php");  
-		}else{
-			header("Location: index.php");
-			echo '<script language="javascript">alert("La Contraseña es incorrecta");</script>';
-			
-			
-					}
+			$error="empty";
+			header("Location: index.php?error=$error");
+		}
 
 ?>
